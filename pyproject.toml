@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "toshikun-sns-line"
+version = "0.1.0"
+description = "A review-first content production line for Toshikun's social channels"
+requires-python = ">=3.11"
+
+[project.scripts]
+toshikun-sns = "toshikun_sns.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
