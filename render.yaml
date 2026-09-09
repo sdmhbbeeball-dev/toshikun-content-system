@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: toshikun-sns
+    runtime: docker
+    healthCheckPath: /health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: TOSHIKUN_ACCESS_PASSWORD
+        sync: false
