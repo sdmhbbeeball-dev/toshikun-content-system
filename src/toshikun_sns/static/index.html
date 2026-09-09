@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>としくん SNSコンテンツメーカー</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">TOSHIKUN CONTENT STUDIO</p>
+      <h1>YouTube原稿から<br><span>SNS投稿を一括作成</span></h1>
+      <p class="lead">校正済みの原稿を貼り付けて、生成ボタンを押すだけ。投稿は自動で行われません。</p>
+    </header>
+
+    <section class="composer" aria-labelledby="input-title">
+      <div class="step">STEP 1</div>
+      <h2 id="input-title">YouTube原稿を貼り付ける</h2>
+      <textarea id="manuscript" placeholder="ここにYouTube原稿を貼り付けてください…" aria-label="YouTube原稿"></textarea>
+      <details id="access-settings">
+        <summary>管理者からパスワードを案内された方はこちら</summary>
+        <label for="access-password">アクセスパスワード</label>
+        <input id="access-password" type="password" autocomplete="off">
+        <p>設定されていないサイトでは空欄のままで構いません。</p>
+      </details>
+      <button id="generate" type="button"><span>✨</span> SNSコンテンツを生成</button>
+      <p class="privacy">🔒 原稿とパスワードはブラウザに保存しません</p>
+      <div id="status" role="status" aria-live="polite"></div>
+    </section>
+
+    <section id="results" hidden>
+      <div class="result-heading">
+        <div><div class="step">STEP 2</div><h2>生成結果を確認する</h2></div>
+        <div id="quality" class="quality"></div>
+      </div>
+      <nav id="tabs" aria-label="コンテンツ種別"></nav>
+      <div id="cards"></div>
+      <p class="notice">⚠️ AIによるドラフトです。投稿前に必ず元原稿と照合し、内容を確認してください。</p>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

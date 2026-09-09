@@ -11,8 +11,10 @@ class ApiError(RuntimeError):
     pass
 
 
-def generate_json(*, api_url: str, model: str, system: str, prompt: str) -> dict[str, Any]:
-    api_key = os.getenv("OPENAI_API_KEY")
+def generate_json(
+    *, api_url: str, model: str, system: str, prompt: str, api_key: str | None = None
+) -> dict[str, Any]:
+    api_key = api_key or os.getenv("OPENAI_API_KEY")
     if not api_key:
         raise ApiError("OPENAI_API_KEY が設定されていません")
 
@@ -56,4 +58,3 @@ def _extract_output_text(payload: dict[str, Any]) -> str:
             if content.get("type") in {"output_text", "text"} and isinstance(content.get("text"), str):
                 parts.append(content["text"])
     return "".join(parts)
-

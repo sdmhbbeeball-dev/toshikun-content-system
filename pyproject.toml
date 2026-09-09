@@ -10,10 +10,13 @@ requires-python = ">=3.11"
 
 [project.scripts]
 toshikun-sns = "toshikun_sns.cli:main"
+toshikun-sns-web = "toshikun_sns.web:main"
+
+[tool.setuptools.package-data]
+toshikun_sns = ["static/*"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
-
