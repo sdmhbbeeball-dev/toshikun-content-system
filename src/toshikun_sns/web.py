@@ -89,8 +89,8 @@ class AppHandler(BaseHTTPRequestHandler):
 
 def parser() -> argparse.ArgumentParser:
     command = argparse.ArgumentParser(description="としくんSNS制作ライン ブラウザ版")
-    command.add_argument("--host", default=os.getenv("HOST", "127.0.0.1"))
-    command.add_argument("--port", type=int, default=int(os.getenv("PORT", "8765")))
+    command.add_argument("--host", default=os.getenv("HOST", "0.0.0.0"))
+    command.add_argument("--port", type=int, default=int(os.getenv("PORT", "10000")))
     command.add_argument("--no-browser", action="store_true")
     return command
 
@@ -100,7 +100,6 @@ def main(argv: list[str] | None = None) -> int:
     server = ThreadingHTTPServer((args.host, args.port), AppHandler)
     url = f"http://{args.host}:{server.server_port}"
     print(f"ブラウザ版を起動しました: {url}")
-    print("終了するときは、このウィンドウを閉じてください。")
     if not args.no_browser and args.host in {"127.0.0.1", "localhost"}:
         threading.Timer(0.4, webbrowser.open, args=(url,)).start()
     try:
