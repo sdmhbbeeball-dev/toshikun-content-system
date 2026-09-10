@@ -33,7 +33,7 @@ Render等のWebサービスへ公開できます。APIキーをブラウザへ�
 必要な環境変数:
 - `OPENAI_API_KEY`: OpenAI APIキー（必須）
 - `TOSHIKUN_ACCESS_PASSWORD`: 利用者へ案内するアクセスパスワード（推奨）
-- `TOSHIKUN_MODEL`: 使用モデル。既定値は `gpt-5.4`
+- `TOSHIKUN_MODEL`: 使用モデル。既定値は `gpt-5.2`
 
 > **重要:** URLを完全公開すると第三者にAPIを利用される可能性があります。`TOSHIKUN_ACCESS_PASSWORD` は空にせず、推測されにくい値を設定してください。OpenAI側でも利用上限を設定してください。
 
@@ -63,5 +63,5 @@ toshikun-sns validate outputs/<job-id>/content.json --manuscript manuscript.md
 | 変数 | 既定値 | 用途 |
 |---|---|---|
 | `OPENAI_API_KEY` | なし | API認証（必須） |
-| `TOSHIKUN_MODEL` | `gpt-5.4` | 使用モデル |
+| `TOSHIKUN_MODEL` | `gpt-5.2` | 使用モデル |
 | `TOSHIKUN_API_URL` | `https://api.openai.com/v1/responses` | Responses互換エンドポイント |
