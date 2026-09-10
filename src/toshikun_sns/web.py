@@ -101,7 +101,7 @@ def main(argv: list[str] | None = None) -> int:
     url = f"http://{args.host}:{server.server_port}"
     print(f"ブラウザ版を起動しました: {url}")
     print("終了するときは、このウィンドウを閉じてください。")
-    if not args.no_browser:
+    if not args.no_browser and args.host in {"127.0.0.1", "localhost"}:
         threading.Timer(0.4, webbrowser.open, args=(url,)).start()
     try:
         server.serve_forever()
