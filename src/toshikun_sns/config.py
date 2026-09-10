@@ -13,7 +13,7 @@ class Settings:
     title_count: int = 5
     thumbnail_count: int = 5
     x_max_chars: int = 280
-    model: str = "gpt-5.4"
+    model: str = "gpt-5.2"
     api_url: str = "https://api.openai.com/v1/responses"
 
     @classmethod
